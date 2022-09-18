@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+// @main serves as entry point for execution of program
 @main
 struct FruitsAppApp: App {
+    
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+            if isOnboarding {
+                OnboardingView()
+            }else {
+                ContentView()
+            }
         }
     }
 }
